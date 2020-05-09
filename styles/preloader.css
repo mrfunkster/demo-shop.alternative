@@ -1,0 +1,120 @@
+.preloader {
+    --bg-color: rgb(13, 37, 61);
+    --size: 200px;
+    --first-color:  #CCDCEE;
+    --second-color: #4884C2;
+    --third-color: #47b8e0;
+    --thickness: 3px;
+    --duration: 1s;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: var(--bg-color);
+    transition: calc(var(--duration) / 1.5);
+    z-index: 100;
+}
+
+.preloader__content {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.preloader__first,
+.preloader__second,
+.preloader__third {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: var(--duration) linear infinite;
+}
+
+.preloader__first {
+    border-bottom: var(--thickness) solid var(--first-color);
+    border-left: var(--thickness) solid var(--first-color);
+    animation-name: first;
+}
+.preloader__second {
+    border-right: var(--thickness) solid var(--second-color);
+    border-top: var(--thickness) solid var(--second-color);
+    animation-name: second;
+}
+.preloader__third {
+    border-top: var(--thickness) solid var(--third-color);
+    border-left: var(--thickness) solid var(--third-color);
+    animation-name: third;
+}
+
+.preloader__core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    animation: calc(var(--duration) * 2) linear infinite alternate-reverse;
+    animation-name: core;
+}
+
+.preloader__description {
+    position: absolute;
+    bottom: calc(0% - 40px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    text-transform: uppercase;
+    animation: calc(var(--duration) * 1.5) linear infinite alternate-reverse;
+    animation-name: core;
+}
+
+@keyframes first {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    50% {
+        transform: rotateX(50deg) rotateY(-45deg) rotateZ(180deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+@keyframes second {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes third {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}
+
+@keyframes core {
+    0% {
+        color: var(--first-color);
+    }
+    50% {
+        color: var(--second-color);
+    }
+    100% {
+        color: var(--third-color);
+    }
+}
+
+.done {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(3);
+}
