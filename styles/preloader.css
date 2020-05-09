@@ -71,6 +71,15 @@
     animation-name: core;
 }
 
+.dot2 {
+    animation: var(--duration) linear infinite;
+    animation-name: dot2;
+}
+.dot3 {
+    animation: var(--duration) linear infinite;
+    animation-name: dot3;
+}
+
 @keyframes first {
     0% {
         transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
@@ -117,4 +126,19 @@
     opacity: 0;
     visibility: hidden;
     transform: scale(3);
+}
+
+@keyframes dot2 {
+    0% {visibility: hidden;}
+    25% {visibility: hidden;}
+    50% {visibility: visible;}
+    75% {visibility: visible;}
+    100% {visibility: visible;}
+}
+@keyframes dot3 {
+    0% {visibility: hidden;}
+    25% {visibility: hidden;}
+    50% {visibility: hidden;}
+    75% {visibility: visible;}
+    100% {visibility: visible;}
 }
